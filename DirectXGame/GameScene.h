@@ -20,8 +20,10 @@ private:
 
 
 private:
-	DirectXCommon* dxCommon = nullptr;
-	Input* input = nullptr;
-	Audio* audio = nullptr;
+	DirectXCommon* dxCommon_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
 
+	//パーティクル3Dモデルデータ
+	Model* modelParticle_ = nullptr;
 };
