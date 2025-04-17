@@ -1,7 +1,7 @@
 #include "Particle.h"
 using namespace KamataEngine;
 using namespace MathUtility;
-void Particle::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos) {
+void Particle::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos, KamataEngine::Vector3 velocity) {
 #ifdef _DEBUG
 	// Nullポインタチェック
 	assert(model);
@@ -10,7 +10,10 @@ void Particle::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos)
 	model_ = model;
 	// 位置の変更
 	worldTransform_.translation_ = pos;
-
+	// 移動量の設定
+	velocity_ = velocity;
+	// 大きさ
+	worldTransform_.scale_ = {0.2f, 0.2f, 0.2f};
 	// 色の設定
 	objectColor_.Initialize();
 	color_ = Vector4(1, 1, 0, 1);
@@ -24,7 +27,7 @@ void Particle::Update() {
 	objectColor_.SetColor(color_);
 
 	// 移動
-	worldTransform_.translation_ += {0.0f, 0.1f, 0.0f};
+	worldTransform_.translation_ += velocity_;
 
 	// 行列を定数バッファに転送
 	worldTransform_.UpdateMatrix();
