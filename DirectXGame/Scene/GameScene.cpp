@@ -7,7 +7,7 @@ using namespace MathUtility;
 std::random_device seedGenerator;
 std::mt19937 RandomEngine(seedGenerator());
 std::uniform_real_distribution<float> RandomFloat(-1.0f, 1.0f);
-std::uniform_real_distribution<float> distribution(0.5f, 1.0f);
+std::uniform_real_distribution<float> distribution(0.0f, 1.0f);
 
 GameScene::GameScene() {}
 
