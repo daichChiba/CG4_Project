@@ -17,6 +17,10 @@ public:
 	void Draw();
 
 private://------メンバ関数
+	/// <summary>
+	/// パーティクル発生
+	/// </summary>
+	void ParticleBorn(KamataEngine::Vector3 pos);
 
 
 private: //------メンバ変数

@@ -7,7 +7,7 @@ using namespace MathUtility;
 std::random_device seedGenerator;
 std::mt19937 RandomEngine(seedGenerator());
 std::uniform_real_distribution<float> RandomFloat(-1.0f, 1.0f);
-std::uniform_real_distribution<float> distribution(0.5f, 1.0f);
+std::uniform_real_distribution<float> distribution(0.0f, 1.0f);
 
 GameScene::GameScene() {}
 
@@ -37,24 +37,16 @@ void GameScene::Initialize() {
 
 	// カメラの初期化
 	camera_.Initialize();
-
-	for (int i = 0; i < 150; i++) {
-		// 生成
-		Particle* particle = new Particle();
-		// 位置
-		Vector3 pos = {0.0f, 0.0f, 0.0f};
-		// 移動量
-		Vector3 velocity = {RandomFloat(RandomEngine), RandomFloat(RandomEngine), 0};
-		Normalize(velocity);
-		velocity *= distribution(RandomEngine);
-		// パーティクルの初期化
-		particle->Initialize(modelParticle_, pos,velocity);
-		// リストに追加
-		particles_.push_back(particle);
-	}
+	// 乱数の初期化
+	srand((unsigned)time(NULL));
 }
 
 void GameScene::Update() {
+	// 確率で発生
+	if (rand() % 20 == 0) {
+		Vector3 pos = {distribution(RandomEngine) * 30.0f, distribution(RandomEngine) * 20.0f, 0};
+		ParticleBorn(pos);
+	}
 	// パーティクルの更新
 	for (Particle* particle : particles_) {
 		particle->Update();
@@ -117,4 +109,23 @@ void GameScene::Draw() {
 	Sprite::PostDraw();
 
 #pragma endregion
+}
+
+/// <summary>
+/// パーティクル発生
+/// </summary>
+/// <param name="pos">位置</param>
+void GameScene::ParticleBorn(Vector3 pos) {
+	for (int i = 0; i < 150; i++) {
+		// 生成
+		Particle* particle = new Particle();
+		// 移動量
+		Vector3 velocity = {RandomFloat(RandomEngine), RandomFloat(RandomEngine), 0};
+		Normalize(velocity);
+		velocity *= distribution(RandomEngine);
+		// パーティクルの初期化
+		particle->Initialize(modelParticle_, pos, velocity);
+		// リストに追加
+		particles_.push_back(particle);
+	}
 }
