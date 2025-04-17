@@ -7,9 +7,10 @@ GameScene::~GameScene() {
 	// パーティクル3Dモデルデータの解放
 	delete modelParticle_;
 	modelParticle_ = nullptr;
-	// カメラの解放
-	delete camera_;
-	camera_ = nullptr;
+	
+	
+	// パーティクルの解放
+	delete particle_;
 }
 
 void GameScene::Initialize() {
@@ -24,13 +25,17 @@ void GameScene::Initialize() {
 	modelParticle_ = Model::CreateSphere(4, 4);
 
 	// カメラの初期化
-	camera_ = new Camera();
-	camera_->Initialize();
+	camera_.Initialize();
 
+	// パーティクルの更新
+	particle_ = new Particle();
+	particle_->Initialize(modelParticle_);
 }
 
 void GameScene::Update() {
 
+	// パーティクルの更新
+	particle_->Update();
 }
 
 void GameScene::Draw() {
@@ -60,7 +65,8 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-
+	// パーティクルの描画
+	particle_->Draw(camera_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();

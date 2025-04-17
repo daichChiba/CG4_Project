@@ -22,6 +22,18 @@
     <Filter Include="ヘッダー ファイル\Scene">
       <UniqueIdentifier>{80596711-40d0-4244-aa63-a19036f7e278}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{41cf9e7e-58d3-44ee-8af8-65b03b8e6b67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Particle">
+      <UniqueIdentifier>{ac34c247-51c9-42a2-80df-494953b03632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object">
+      <UniqueIdentifier>{763e26e0-caf4-4b2a-b3dd-46ac3e25a20c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Object\Particle">
+      <UniqueIdentifier>{293e9f80-1e12-4bb1-b488-ce8643933802}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,8 +42,8 @@
     <ClCompile Include="Scene\GameScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Object\Particle.cpp">
+      <Filter>ソース ファイル\Object\Particle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,8 +99,8 @@
     <ClInclude Include="Scene\GameScene.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Object\Particle.h">
+      <Filter>ヘッダー ファイル\Object\Particle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

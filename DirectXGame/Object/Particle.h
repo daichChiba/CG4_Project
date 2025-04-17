@@ -7,7 +7,8 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	/// <param name="model">モデル</param>
+	void Initialize(Model* model);
 	/// <summary>
 	/// 更新
 	/// </summary>
@@ -15,7 +16,7 @@ public:
 	/// <summary>
 	/// 描画
 	/// </summary>
-	void Draw();
+	void Draw(Camera& camera);
 
 private:
 	// ワールド変換データ

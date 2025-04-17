@@ -1,5 +1,6 @@
 #pragma once
 #include "KamataEngine.h"
+#include "../Object/Particle.h"
 
 using namespace KamataEngine;
 // ゲームシーン
@@ -16,10 +17,10 @@ public:
 	// 描画
 	void Draw();
 
-private:
+private://------メンバ関数
 
 
-private:
+private: //------メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
@@ -27,5 +28,9 @@ private:
 	//パーティクル3Dモデルデータ
 	Model* modelParticle_ = nullptr;
 	// カメラの初期化
-	Camera* camera_;
+	Camera camera_;
+
+	// パーティクル
+	Particle* particle_ = nullptr;
+
 };
