@@ -6,6 +6,10 @@ GameScene::~GameScene() {
 
 	// パーティクル3Dモデルデータの解放
 	delete modelParticle_;
+	modelParticle_ = nullptr;
+	// カメラの解放
+	delete camera_;
+	camera_ = nullptr;
 }
 
 void GameScene::Initialize() {
@@ -15,6 +19,14 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
+
+	// モデルの初期化
+	modelParticle_ = Model::CreateSphere(4, 4);
+
+	// カメラの初期化
+	camera_ = new Camera();
+	camera_->Initialize();
+
 }
 
 void GameScene::Update() {

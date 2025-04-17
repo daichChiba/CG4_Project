@@ -26,4 +26,6 @@ private:
 
 	//パーティクル3Dモデルデータ
 	Model* modelParticle_ = nullptr;
+	// カメラの初期化
+	Camera* camera_;
 };
