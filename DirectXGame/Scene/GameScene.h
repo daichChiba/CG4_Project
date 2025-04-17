@@ -30,6 +30,6 @@ private: //------メンバ変数
 	KamataEngine::Camera camera_;
 
 	// パーティクル
-	Particle* particle_ = nullptr;
+	std::list<Particle*> particles_;
 
 };
