@@ -23,10 +23,9 @@ private:
 	KamataEngine::WorldTransform worldTransform_;
 	// モデル
 	KamataEngine::Model* model_ = nullptr;
-	Model* model_ = nullptr;
 	// 色変更オブジェクト
-	ObjectColor objectColor_;
+	KamataEngine::ObjectColor objectColor_;
 	// 色の数値
-	Vector4 color_;
+	KamataEngine::Vector4 color_;
 
 };
