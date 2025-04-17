@@ -1,5 +1,5 @@
 #include "Particle.h"
-
+using namespace KamataEngine;
 void Particle::Initialize(Model* model) {
 #ifdef _DEBUG
 	// Nullポインタチェック

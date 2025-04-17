@@ -1,14 +1,14 @@
 #pragma once
 #include <KamataEngine.h>
 
-using namespace KamataEngine;
+
 class Particle {
 public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
 	/// <param name="model">モデル</param>
-	void Initialize(Model* model);
+	void Initialize(KamataEngine::Model* model);
 	/// <summary>
 	/// 更新
 	/// </summary>
@@ -16,12 +16,13 @@ public:
 	/// <summary>
 	/// 描画
 	/// </summary>
-	void Draw(Camera& camera);
+	void Draw(KamataEngine::Camera& camera);
 
 private:
 	// ワールド変換データ
-	WorldTransform worldTransform_;
+	KamataEngine::WorldTransform worldTransform_;
 	// モデル
+	KamataEngine::Model* model_ = nullptr;
 	Model* model_ = nullptr;
 	// 色変更オブジェクト
 	ObjectColor objectColor_;
