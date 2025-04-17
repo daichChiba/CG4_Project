@@ -18,6 +18,8 @@ public:
 	/// 描画
 	/// </summary>
 	void Draw(KamataEngine::Camera& camera);
+	// デスフラグのgetter
+	bool IsFinished() const { return isFinished_; }
 
 private:
 	// ワールド変換データ
@@ -30,4 +32,12 @@ private:
 	KamataEngine::Vector4 color_;
 	// 移動量
 	KamataEngine::Vector3 velocity_;
+
+private:
+	// 終了フラグ
+	bool isFinished_ = false;
+	// 経過時間カウント
+	float counter_ = 0.0f;
+	// 存続時間(消滅までの時間)<秒>
+	const float kDuration = 1.0f;
 };
