@@ -30,7 +30,7 @@ void GameScene::Initialize() {
 	// モデルの初期化
 	modelEffect_ = Model::Create();
 
-	effect_->Initialize();
+	effect_->Initialize(modelEffect_);
 
 	// カメラの初期化
 	camera_ = new Camera();
