@@ -1,15 +1,20 @@
 #include "GameScene.h"
-
+using namespace KamataEngine;
 GameScene::GameScene() {}
-
 GameScene::~GameScene() {
 
-	// パーティクル3Dモデルデータの解放
-	delete modelParticle_;
-	modelParticle_ = nullptr;
+	//// パーティクル3Dモデルデータの解放
+	//delete modelParticle_;
+	//modelParticle_ = nullptr;
 	// カメラの解放
 	delete camera_;
 	camera_ = nullptr;
+
+	delete effect_;
+	effect_ = nullptr;
+	
+	delete modelEffect_;
+	modelEffect_ = nullptr;
 }
 
 void GameScene::Initialize() {
@@ -20,8 +25,12 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
+	//// モデルの初期化
+	//modelParticle_ = Model::CreateSphere(4, 4);
 	// モデルの初期化
-	modelParticle_ = Model::CreateSphere(4, 4);
+	modelEffect_ = Model::Create();
+
+	effect_->Initialize();
 
 	// カメラの初期化
 	camera_ = new Camera();
@@ -30,7 +39,7 @@ void GameScene::Initialize() {
 }
 
 void GameScene::Update() {
-
+	effect_->Update();
 }
 
 void GameScene::Draw() {
@@ -60,7 +69,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-
+	effect_->Draw();
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
