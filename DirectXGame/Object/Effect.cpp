@@ -11,7 +11,6 @@ void Effect::Initialize(Model* model) {
 void Effect::Update() {
 	worldTransform_.TransferMatrix();
 
-
 }
 
 void Effect::Draw() {
