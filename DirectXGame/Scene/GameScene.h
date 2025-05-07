@@ -28,7 +28,7 @@ private:
 	////パーティクル3Dモデルデータ
 	// Model* modelParticle_ = nullptr;
 	//  カメラの初期化
-	KamataEngine::Camera* camera_;
+	KamataEngine::Camera camera_;
 
 	KamataEngine::Model* modelEffect_;
 	//エフェクト

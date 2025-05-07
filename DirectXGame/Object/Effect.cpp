@@ -5,6 +5,8 @@ void Effect::Initialize(Model* model) {
 	assert(model);
 	model_ = model;
 
+
+
 	worldTransform_.Initialize();
 }
 
@@ -13,6 +15,6 @@ void Effect::Update() {
 
 }
 
-void Effect::Draw() {
-
+void Effect::Draw(Camera& camera) {
+	model_->Draw(worldTransform_, camera);
 }

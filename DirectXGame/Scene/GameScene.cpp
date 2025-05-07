@@ -7,8 +7,7 @@ GameScene::~GameScene() {
 	//delete modelParticle_;
 	//modelParticle_ = nullptr;
 	// カメラの解放
-	delete camera_;
-	camera_ = nullptr;
+
 
 	delete effect_;
 	effect_ = nullptr;
@@ -28,13 +27,14 @@ void GameScene::Initialize() {
 	//// モデルの初期化
 	//modelParticle_ = Model::CreateSphere(4, 4);
 	// モデルの初期化
-	modelEffect_ = Model::Create();
-
+	//modelEffect_->Create();
+	modelEffect_ = Model::CreateFromOBJ("Plane");
+	//modelEffect_=Model::CreateSphere(4, 4);
+	effect_ = new Effect();
 	effect_->Initialize(modelEffect_);
 
 	// カメラの初期化
-	camera_ = new Camera();
-	camera_->Initialize();
+	camera_.Initialize();
 
 }
 
@@ -69,7 +69,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-	effect_->Draw();
+	effect_->Draw(camera_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
