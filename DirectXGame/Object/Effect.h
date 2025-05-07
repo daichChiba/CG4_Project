@@ -7,7 +7,7 @@ public:
 	/// 初期化
 	/// </summary>
 	/// <param name="model">モデル</param>
-	void Initialize(KamataEngine::Model* model/*,KamataEngine::Vector3 size,KamataEngine::Vector3 rotate*/);
+	void Initialize(KamataEngine::Model* model);
 	/// <summary>
 	/// 更新
 	/// </summary>
@@ -22,4 +22,6 @@ private:
 	KamataEngine::WorldTransform worldTransform_;
 	// モデル
 	KamataEngine::Model* model_ = nullptr;
+
+
 };

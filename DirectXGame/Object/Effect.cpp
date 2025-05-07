@@ -1,13 +1,19 @@
 #include "Effect.h"
 using namespace KamataEngine;
-void Effect::Initialize(KamataEngine::Model* model/*, KamataEngine::Vector3 size, KamataEngine::Vector3 rotate*/) {
+#include <random>
+std::random_device seed_Generator;
+std::mt19937 RandomEngine(seed_Generator());
+std::uniform_real_distribution<float> RandomSize(0.0f, 1.0f);
+std::uniform_real_distribution<float> RandomRotation(-1.0f, 1.0f);
+void Effect::Initialize(KamataEngine::Model* model) {
 	// NULLポインタチェック
 	assert(model);
 	model_ = model;
 
 	worldTransform_.Initialize();
-
-	//worldTransform_.scale_ = size;
+	//Vector3 rotate = Vector3(0.0f, 0.0f, RandomRotation(RandomEngine));
+	worldTransform_.scale_.y = RandomSize(RandomEngine)*10.0f;
+	worldTransform_.rotation_.z = RandomRotation(RandomEngine)*10.0f;
 	//worldTransform_.rotation_ = rotate;
 }
 
