@@ -13,7 +13,7 @@ void Effect::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 size, 
 }
 
 void Effect::Update() {
-	worldTransform_.TransferMatrix();
+	worldTransform_.UpdateMatrix();
 
 
 }
