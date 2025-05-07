@@ -3,10 +3,10 @@ using namespace KamataEngine;
 
 #include <random>
 
-std::random_device seed_Generator;
-std::mt19937 RandomEngine(seed_Generator());
-std::uniform_real_distribution<float> RandomSize(0.0f, 1.0f);
-std::uniform_real_distribution<float> RandomRotation(-1.0f, 1.0f);
+//std::random_device seed_Generator;
+//std::mt19937 RandomEngine(seed_Generator());
+//std::uniform_real_distribution<float> RandomSize(0.0f, 1.0f);
+//std::uniform_real_distribution<float> RandomRotation(0.0f, 1.0f);
 
 GameScene::GameScene() {}
 GameScene::~GameScene() {
@@ -31,11 +31,11 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
-	// 乱数の初期化
-	srand((unsigned)time(NULL));
+	//// 乱数の初期化
+	//srand((unsigned)time(NULL));
 
-	Vector3 size = Vector3(0.0f, RandomSize(RandomEngine), 0.0f);
-	Vector3 rotate = Vector3(0.0f, 0.0f, RandomRotation(RandomEngine));
+	//Vector3 size = Vector3(0.0f, 0.0f/*RandomSize(RandomEngine)*/, 0.0f);
+	//Vector3 rotate = Vector3(0.0f, 0.0f, 0.0f/*RandomRotation(RandomEngine)*/);
 
 	//// モデルの初期化
 	// modelParticle_ = Model::CreateSphere(4, 4);
@@ -44,7 +44,7 @@ void GameScene::Initialize() {
 	modelEffect_ = Model::CreateFromOBJ("Plane");
 	// modelEffect_=Model::CreateSphere(4, 4);
 	effect_ = new Effect();
-	effect_->Initialize(modelEffect_,size,rotate);
+	effect_->Initialize(modelEffect_/*,size,rotate*/);
 
 	// カメラの初期化
 	camera_.Initialize();
