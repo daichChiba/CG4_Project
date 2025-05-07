@@ -12,7 +12,7 @@ void Effect::Initialize(KamataEngine::Model* model) {
 
 	worldTransform_.Initialize();
 	//Vector3 rotate = Vector3(0.0f, 0.0f, RandomRotation(RandomEngine));
-	worldTransform_.scale_.y = RandomSize(RandomEngine)*10.0f;
+	worldTransform_.scale_.y = RandomSize(RandomEngine)*20.0f;
 	worldTransform_.rotation_.z = RandomRotation(RandomEngine)*10.0f;
 	//worldTransform_.rotation_ = rotate;
 }
