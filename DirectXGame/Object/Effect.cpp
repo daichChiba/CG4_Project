@@ -1,10 +1,12 @@
 #include "Effect.h"
 using namespace KamataEngine;
-void Effect::Initialize(Model* model) {
+void Effect::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 size, KamataEngine::Vector3 rotate) {
 	//NULLポインタチェック
 	assert(model);
 	model_ = model;
 
+	worldTransform_.scale_ = size;
+	worldTransform_.rotation_ = rotate;
 
 
 	worldTransform_.Initialize();

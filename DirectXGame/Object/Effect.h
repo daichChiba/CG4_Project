@@ -7,7 +7,7 @@ public:
 	/// 初期化
 	/// </summary>
 	/// <param name="model">モデル</param>
-	void Initialize(KamataEngine::Model* model);
+	void Initialize(KamataEngine::Model* model,KamataEngine::Vector3 size,KamataEngine::Vector3 rotate);
 	/// <summary>
 	/// 更新
 	/// </summary>
