@@ -18,7 +18,10 @@ public:
 	void Draw();
 
 private:
-
+	/// <summary>
+	/// エフェクト発生
+	/// </summary>
+	void EffectBorn(KamataEngine::Vector3 pos);
 
 private:
 	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
