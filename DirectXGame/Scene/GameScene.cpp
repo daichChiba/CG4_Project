@@ -3,9 +3,10 @@ using namespace KamataEngine;
 
 #include <random>
 
-std::random_device seed_Generator;
-std::mt19937 RandomEngine(seed_Generator());
-std::uniform_real_distribution<float> distribution(-1.0f, 1.0f);
+// std::random_device seed_Generator;
+// std::mt19937 RandomEngine(seed_Generator());
+// std::uniform_real_distribution<float> RandomSize(0.0f, 1.0f);
+// std::uniform_real_distribution<float> RandomRotation(0.0f, 1.0f);
 // std::uniform_real_distribution<float> RandomFloat(-1.0f, 1.0f);
 
 GameScene::GameScene() {}
@@ -50,19 +51,22 @@ void GameScene::Initialize() {
 	// modelEffect_=Model::CreateSphere(4, 4);
 	// effect_ = new Effect();
 	// effect_->Initialize(modelEffect_,pos);
+	for (int i = 0; i < 10; i++) {
+		// 生成
+		Effect* effect = new Effect();
+		// 位置
+		Vector3 pos = Vector3(0.0f, 0.0f, 0.0f);
+		// 初期化
+		effect->Initialize(modelEffect_, pos);
+		// リストに追加
+		effectes_.push_back(effect);
+	}
 
 	// カメラの初期化
 	camera_.Initialize();
-
-	// 乱数の初期化
-	srand((unsigned)time(NULL));
 }
 
 void GameScene::Update() {
-	if (rand() % 20 == 0) {
-		Vector3 pos = Vector3(distribution(RandomEngine) * 30.0f, distribution(RandomEngine) * 20.0f, 0);
-		EffectBorn(pos);
-	}
 
 	for (Effect* effect : effectes_) {
 		effect->Update();
@@ -124,17 +128,4 @@ void GameScene::Draw() {
 	Sprite::PostDraw();
 
 #pragma endregion
-}
-
-void GameScene::EffectBorn(Vector3 pos) {
-	for (int i = 0; i < 10; i++) {
-		// 生成
-		Effect* effect = new Effect();
-		//// 位置
-		// Vector3 pos = Vector3(0.0f, 0.0f, 0.0f);
-		//  初期化
-		effect->Initialize(modelEffect_, pos);
-		// リストに追加
-		effectes_.push_back(effect);
-	}
 }
