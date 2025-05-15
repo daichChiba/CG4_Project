@@ -24,7 +24,7 @@ private:
 	KamataEngine::Input* input_ = nullptr;
 	KamataEngine::Audio* audio_ = nullptr;
 
-	
+	KamataEngine::Model2* model_ = nullptr;
 	
 
 	// カメラの初期化
