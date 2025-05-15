@@ -1,7 +1,6 @@
 #pragma once
-#include "KamataEngine.h"
 #include "../Object/Effect.h"
-
+#include "KamataEngine.h"
 
 // ゲームシーン
 class GameScene {
@@ -21,7 +20,7 @@ private:
 	/// <summary>
 	/// エフェクト発生
 	/// </summary>
-	void EffectBorn(KamataEngine::Vector3 pos, KamataEngine::Vector4 color);
+	void EffectBorn(KamataEngine::Vector3 pos);
 
 private:
 	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
@@ -34,6 +33,6 @@ private:
 	KamataEngine::Camera camera_;
 
 	KamataEngine::Model* modelEffect_;
-	//エフェクト
+	// エフェクト
 	std::list<Effect*> effectes_;
 };
