@@ -1,7 +1,7 @@
 #pragma once
 #include "KamataEngine.h"
+#include "../Model2/Model2.h"
 
-using namespace KamataEngine;
 // ゲームシーン
 class GameScene {
 public:
@@ -20,12 +20,13 @@ private:
 
 
 private:
-	DirectXCommon* dxCommon_ = nullptr;
-	Input* input_ = nullptr;
-	Audio* audio_ = nullptr;
+	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
+	KamataEngine::Input* input_ = nullptr;
+	KamataEngine::Audio* audio_ = nullptr;
 
-	//パーティクル3Dモデルデータ
-	Model* modelParticle_ = nullptr;
+	Model2* model_ = nullptr;
+	
+
 	// カメラの初期化
-	Camera* camera_;
+	KamataEngine::Camera* camera_;
 };
