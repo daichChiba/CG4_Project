@@ -5,8 +5,8 @@ using namespace KamataEngine;
 
 std::random_device seed_Generator;
 std::mt19937 RandomEngine(seed_Generator());
-std::uniform_real_distribution<float> distribution(-1.0f, 1.0f);
-// std::uniform_real_distribution<float> RandomFloat(-1.0f, 1.0f);
+std::uniform_real_distribution<float> distribution(0.0f, 1.0f);
+ std::uniform_real_distribution<float> RandomFloat(-1.0f, 1.0f);
 
 GameScene::GameScene() {}
 GameScene::~GameScene() {
@@ -60,8 +60,9 @@ void GameScene::Initialize() {
 
 void GameScene::Update() {
 	if (rand() % 20 == 0) {
-		Vector3 pos = Vector3(distribution(RandomEngine) * 30.0f, distribution(RandomEngine) * 20.0f, 0);
-		EffectBorn(pos);
+		Vector3 pos = Vector3(RandomFloat(RandomEngine) * 30.0f, RandomFloat(RandomEngine) * 20.0f, 0);
+		Vector4 color = Vector4(distribution(RandomEngine), distribution(RandomEngine), distribution(RandomEngine), 1.0f);
+		EffectBorn(pos, color);
 	}
 
 	for (Effect* effect : effectes_) {
@@ -126,14 +127,14 @@ void GameScene::Draw() {
 #pragma endregion
 }
 
-void GameScene::EffectBorn(Vector3 pos) {
+void GameScene::EffectBorn(Vector3 pos, Vector4 color) {
 	for (int i = 0; i < 10; i++) {
 		// 生成
 		Effect* effect = new Effect();
 		//// 位置
 		// Vector3 pos = Vector3(0.0f, 0.0f, 0.0f);
 		//  初期化
-		effect->Initialize(modelEffect_, pos);
+		effect->Initialize(modelEffect_, pos, color);
 		// リストに追加
 		effectes_.push_back(effect);
 	}
