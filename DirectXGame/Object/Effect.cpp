@@ -1,6 +1,7 @@
 #include "Effect.h"
 using namespace KamataEngine;
 #include <random>
+using namespace MathUtility;
 
 void Effect::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos, KamataEngine::Vector4 color) {
 	std::random_device seed_Generator;
@@ -25,7 +26,9 @@ void Effect::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos, K
 }
 
 void Effect::Update() {
-	worldTransform_.rotation_.y += 0.01f;
+	worldTransform_.rotation_.y += moveSpeed_;
+	worldTransform_.translation_.x += moveSpeed_;
+	worldTransform_.translation_.y += moveSpeed_;
 
 	// 終了なら何もしない
 	if (isFinished_) {

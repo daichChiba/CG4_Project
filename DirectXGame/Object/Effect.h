@@ -36,4 +36,6 @@ private:
 	float counter_ = 0.0f;
 	// 存在時間(消滅までの時間)<秒>
 	const float kDuration = 1.0f;
+	// 移動速度
+	float moveSpeed_ = 0.1f;
 };
