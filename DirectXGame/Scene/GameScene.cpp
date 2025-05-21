@@ -5,7 +5,7 @@ using namespace KamataEngine;
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {
-
+	Model2::StaticFinalize();
 
 	// カメラの解放
 	delete camera_;
@@ -20,6 +20,7 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
+	Model2::StaticInitialize();
 
 
 	// カメラの初期化
