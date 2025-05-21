@@ -62,24 +62,12 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
+	model_->Draw(worldTransform_, &camera_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
 #pragma endregion
 
-#pragma region 3Dオブジェクト描画
-	// 3Dオブジェクト描画前処理
-	Model2::PreDraw(commandList);
-
-	/// <summary>
-	/// ここに3Dオブジェクトの描画処理を追加できる
-	/// </summary>
-
-	model_->Draw(worldTransform_, &camera_);
-
-	// 3Dオブジェクト描画後処理
-	Model2::PostDraw();
-#pragma endregion
 
 #pragma region 前景スプライト描画
 	// 前景スプライト描画前処理
