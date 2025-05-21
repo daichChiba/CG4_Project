@@ -26,7 +26,7 @@ private:
 
 	KamataEngine::Model2* model_ = nullptr;
 	
-	
+	KamataEngine::WorldTransform worldTransform_ ;
 
 	// カメラの初期化
 	KamataEngine::Camera* camera_;

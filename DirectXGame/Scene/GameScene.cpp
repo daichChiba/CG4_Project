@@ -23,6 +23,8 @@ void GameScene::Initialize() {
 	Model2::StaticInitialize();
 	model_ = Model2::CreateFromOBJ("cube.obj", true);
 
+	worldTransform_.Initialize();
+
 	// カメラの初期化
 	camera_ = new Camera();
 	camera_->Initialize();
@@ -73,7 +75,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-	model_->Draw(&camera_);
+	model_->Draw(worldTransform_, &camera_);
 
 	// 3Dオブジェクト描画後処理
 	Model2::PostDraw();
