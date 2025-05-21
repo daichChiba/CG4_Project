@@ -21,7 +21,7 @@ void GameScene::Initialize() {
 	audio_ = Audio::GetInstance();
 
 	Model2::StaticInitialize();
-
+	model_ = Model2::CreateFromOBJ("cube.obj", true);
 
 	// カメラの初期化
 	camera_ = new Camera();
@@ -61,9 +61,22 @@ void GameScene::Draw() {
 	/// </summary>
 
 
-
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
+#pragma endregion
+
+#pragma region 3Dオブジェクト描画
+	// 3Dオブジェクト描画前処理
+	Model2::PreDraw(commandList);
+
+	/// <summary>
+	/// ここに3Dオブジェクトの描画処理を追加できる
+	/// </summary>
+
+	model_->Draw(&camera_);
+
+	// 3Dオブジェクト描画後処理
+	Model2::PostDraw();
 #pragma endregion
 
 #pragma region 前景スプライト描画
