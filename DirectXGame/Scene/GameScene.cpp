@@ -21,9 +21,10 @@ void GameScene::Initialize() {
 	audio_ = Audio::GetInstance();
 
 	Model2::StaticInitialize();
-	model_ = Model2::CreateFromOBJ("cube.obj", true);
+	model_ = Model2::CreateFromOBJ("Panel", true);
 
 	worldTransform_.Initialize();
+
 
 	// カメラの初期化
 	camera_ = new Camera();
