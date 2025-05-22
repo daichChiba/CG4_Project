@@ -25,6 +25,7 @@ private:
 	KamataEngine::Audio* audio_ = nullptr;
 
 	KamataEngine::Model2* model_ = nullptr;
+	uint32_t model2Handle_;
 
 	KamataEngine::Model* model = nullptr;
 	

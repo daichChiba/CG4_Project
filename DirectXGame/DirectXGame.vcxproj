@@ -107,9 +107,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Model2\Model2.cpp" />
-    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="Object\Particle.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="WorldTransformEx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resources\shaders\TerrainPS.hlsl">
@@ -188,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model2\Model2.h" />
-    <ClInclude Include="Particle.h" />
+    <ClInclude Include="Object\Particle.h" />
     <ClInclude Include="Scene\GameScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

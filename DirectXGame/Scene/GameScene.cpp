@@ -20,22 +20,19 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
-	Model2::StaticInitialize();
-	model_ = Model2::CreateFromOBJ("Panel", true);
-
 	worldTransform_.Initialize();
-
 
 	// カメラの初期化
 	camera_ = new Camera();
 	camera_->Initialize();
 
+	Model2::StaticInitialize();
+	model2Handle_ = TextureManager::Load("./Resources/uvChecker.png");
+	model_ = Model2::CreateFromOBJ("Panel", true);
 }
 
 void GameScene::Update() {
-
-
-
+	worldTransform_.UpdateMatrix();
 }
 
 void GameScene::Draw() {
@@ -59,19 +56,17 @@ void GameScene::Draw() {
 
 #pragma region 3Dオブジェクト描画
 	// 3Dオブジェクト描画前処理
-	Model::PreDraw(commandList);
+	Model2::PreDraw(commandList);
 
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-	model_->Draw(worldTransform_, &camera_);
-
+	model_->Draw(worldTransform_, *camera_, model2Handle_);
 
 	// 3Dオブジェクト描画後処理
-	Model::PostDraw();
+	Model2::PostDraw();
 #pragma endregion
-
 
 #pragma region 前景スプライト描画
 	// 前景スプライト描画前処理
@@ -86,5 +81,3 @@ void GameScene::Draw() {
 
 #pragma endregion
 }
-
-

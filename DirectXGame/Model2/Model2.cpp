@@ -26,7 +26,7 @@ namespace KamataEngine {
 /// 静的メンバ変数の実体
 /// </summary>
 const char* Model2::kBaseDirectory = "Resources/";
-const char* Model2::kDefaultModelName = "cube";
+const char* Model2::kDefaultModelName = "Cube";
 ModelCommon2* ModelCommon2::sInstance_ = nullptr;
 
 void Model2::StaticInitialize() { ModelCommon2::GetInstance()->Initialize(); }
