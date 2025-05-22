@@ -28,6 +28,7 @@ private:
 	uint32_t model2Handle_;
 
 	KamataEngine::Model* model = nullptr;
+
 	
 	KamataEngine::WorldTransform worldTransform_ ;
 
