@@ -25,6 +25,8 @@ private:
 	KamataEngine::Audio* audio_ = nullptr;
 
 	KamataEngine::Model2* model_ = nullptr;
+
+	KamataEngine::Model* model = nullptr;
 	
 	KamataEngine::WorldTransform worldTransform_ ;
 

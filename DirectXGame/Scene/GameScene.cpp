@@ -34,6 +34,8 @@ void GameScene::Initialize() {
 
 void GameScene::Update() {
 
+
+
 }
 
 void GameScene::Draw() {
@@ -64,6 +66,7 @@ void GameScene::Draw() {
 	/// </summary>
 
 	model_->Draw(worldTransform_, &camera_);
+
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
