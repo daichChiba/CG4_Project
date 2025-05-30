@@ -7,6 +7,8 @@ GameScene::GameScene() {}
 GameScene::~GameScene() {
 	Model2::StaticFinalize();
 
+	delete model_;
+
 	// カメラの解放
 	delete camera_;
 	camera_ = nullptr;
@@ -63,6 +65,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
+	model_->Draw(worldTransform_, *camera_, model2Handle_);
 	model_->Draw(worldTransform_, *camera_, model2Handle_);
 
 	// 3Dオブジェクト描画後処理
