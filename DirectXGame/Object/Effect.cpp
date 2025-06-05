@@ -10,7 +10,11 @@ void Effect::Initialize(KamataEngine::Model* model, KamataEngine::Vector3 pos, K
 	std::uniform_real_distribution<float> RandomRotation(-1.0f, 1.0f);
 	std::uniform_real_distribution<float> RandomColor(0.0f, 255.0f);
 	// NULLポインタチェック
+#ifdef _DEBUG
+
 	assert(model);
+#endif // _DEBUG
+
 	model_ = model;
 
 	// Vector3 rotate = Vector3(0.0f, 0.0f, RandomRotation(RandomEngine));
