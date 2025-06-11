@@ -66,7 +66,6 @@ void GameScene::Draw() {
 	/// </summary>
 
 	model_->Draw(worldTransform_, *camera_, model2Handle_);
-	model_->Draw(worldTransform_, *camera_, model2Handle_);
 
 	// 3Dオブジェクト描画後処理
 	Model2::PostDraw();
