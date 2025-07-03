@@ -7,11 +7,6 @@ GameScene::GameScene() {}
 GameScene::~GameScene() {
 	Model2::StaticFinalize();
 
-	for (WorldTransform* wt : worldTransform_) {
-		delete wt;
-	}
-	worldTransform_.clear();
-
 	delete model_;
 
 	// カメラの解放
@@ -27,26 +22,20 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
-
-
 	// カメラの初期化
 	camera_ = new Camera();
 	camera_->Initialize();
-	
-	for (int i = 0; i < 5; i++) {
-		WorldTransform* wt = new WorldTransform();
-		wt->Initialize();
-		wt->translation_ = {i * 5.0f, 0.0f, 0.0f};
-		worldTransform_.push_back(wt);
-	}
+
+	worldTransform_.Initialize();
 
 	Model2::StaticInitialize();
 	model2Handle_ = TextureManager::Load("./Resources/uvChecker.png");
-	//model_ = Model2::CreateFromOBJ("Panel", true);
+	// model_ = Model2::CreateFromOBJ("Panel", true);
 	model_ = Model2::CreateSquare(5);
 }
 
 void GameScene::Update() {
+	worldTransform_.UpdateMatrix();
 }
 
 void GameScene::Draw() {
@@ -75,9 +64,8 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
-	for (WorldTransform* wt : worldTransform_) {
-		model_->Draw(*wt, *camera_, model2Handle_);
-	}
+	model_->Draw(worldTransform_, *camera_, model2Handle_);
+
 	// 3Dオブジェクト描画後処理
 	Model2::PostDraw();
 #pragma endregion

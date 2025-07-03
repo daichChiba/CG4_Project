@@ -137,39 +137,56 @@ Model2* Model2::CreateSquare(int num) {
 	std::vector<Mesh::VertexPosNormalUv> vertices;
 	std::vector<uint32_t> indices;
 
+	const uint32_t kNumDivide = num;
+
 	// 頂点数
 	const uint32_t kNumVertices = 4;
 	// インデックス数
 	const uint32_t kNumIndices = 6;
 
-	vertices.resize(kNumVertices);
-	indices.resize(kNumIndices);
+	// spriteの幅
+	const float kWidth = 4.0f;
+	const float kHeight = 4.0f;
 
-	// 左下
-	vertices[0].pos = {-7.0f, -5.0f, 0.0f};
-	vertices[0].uv = {0.0f, 1.0f};
-	vertices[0].normal = {0.0f, 0.0f, -1.0f};
-	// 左上
-	vertices[1].pos = {-7.0f, 5.0f, 0.0f};
-	vertices[1].uv = {0.0f, 0.0f};
-	vertices[1].normal = {0.0f, 0.0f, -1.0f};
-	// 右下
-	vertices[2].pos = {7.0f * static_cast<float>(num), -5.0f, 0.0f};
-	vertices[2].uv = {1.0f * static_cast<float>(num), 1.0f};
-	vertices[2].normal = {0.0f, 0.0f, -1.0f};
+	vertices.resize(kNumDivide * kNumVertices);
+	indices.resize(kNumDivide * kNumIndices);
+	for (uint32_t index = 0; index < kNumDivide; index++) {
+		float left = -kWidth + index * (kWidth * 2);
+		float right = left + kWidth * 2;
+		float top = kHeight;
+		float bottom = -kHeight;
 
-	// 右上
-	vertices[3].pos = {7.0f * static_cast<float>(num), 5.0f, 0.0f};
-	vertices[3].uv = {1.0f * static_cast<float>(num), 0.0f};
-	vertices[3].normal = {0.0f, 0.0f, -1.0f};
 
-	// インデックス
-	indices[0] = 0;
-	indices[1] = 1;
-	indices[2] = 2;
-	indices[3] = 2;
-	indices[4] = 1;
-	indices[5] = 3;
+		// 各分割の最初の頂点のインデックス
+		uint32_t vertexIndex = index * kNumVertices;
+		uint32_t indexIndex = index * kNumIndices;
+
+		// 左下
+		vertices[(size_t)vertexIndex + 0].pos = {left, bottom, 0.0f};
+		vertices[(size_t)vertexIndex + 0].uv = {0.0f, 1.0f};
+		vertices[(size_t)vertexIndex + 0].normal = {0.0f, 0.0f, -1.0f};
+		// 左上
+		vertices[(size_t)vertexIndex + 1].pos = {left, top, 0.0f};
+		vertices[(size_t)vertexIndex + 1].uv = {0.0f, 0.0f};
+		vertices[(size_t)vertexIndex + 1].normal = {0.0f, 0.0f, -1.0f};
+		// 右下
+		vertices[(size_t)vertexIndex + 2].pos = {right, bottom, 0.0f};
+		vertices[(size_t)vertexIndex + 2].uv = {1.0f, 1.0f};
+		vertices[(size_t)vertexIndex + 2].normal = {0.0f, 0.0f, -1.0f};
+
+		// 右上
+		vertices[(size_t)vertexIndex + 3].pos = {right, top, 0.0f};
+		vertices[(size_t)vertexIndex + 3].uv = {1.0f , 0.0f};
+		vertices[(size_t)vertexIndex + 3].normal = {0.0f, 0.0f, -1.0f};
+
+		// インデックス
+		indices[(size_t)indexIndex + 0] = vertexIndex + 0;
+		indices[(size_t)indexIndex + 1] = vertexIndex + 1;
+		indices[(size_t)indexIndex + 2] = vertexIndex + 2;
+		indices[(size_t)indexIndex + 3] = vertexIndex + 2;
+		indices[(size_t)indexIndex + 4] = vertexIndex + 1;
+		indices[(size_t)indexIndex + 5] = vertexIndex + 3;
+	}
 
 	instance->InitializeFromVertices(vertices, indices);
 
