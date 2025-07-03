@@ -1,7 +1,6 @@
 #pragma once
 #include "KamataEngine.h"
 
-using namespace KamataEngine;
 // ゲームシーン
 class GameScene {
 public:
@@ -20,8 +19,8 @@ private:
 
 
 private:
-	DirectXCommon* dxCommon_ = nullptr;
-	Input* input_ = nullptr;
-	Audio* audio_ = nullptr;
+	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
+	KamataEngine::Input* input_ = nullptr;
+	KamataEngine::Audio* audio_ = nullptr;
 
 };
