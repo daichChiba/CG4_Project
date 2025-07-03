@@ -1,6 +1,6 @@
 #pragma once
-#include "KamataEngine.h"
 #include "../Model2/Model2.h"
+#include "KamataEngine.h"
 
 // ゲームシーン
 class GameScene {
@@ -17,8 +17,6 @@ public:
 	void Draw();
 
 private:
-
-
 private:
 	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
 	KamataEngine::Input* input_ = nullptr;
@@ -30,7 +28,7 @@ private:
 	KamataEngine::Model2* model = nullptr;
 	KamataEngine::Model2* ringModel = nullptr;
 
-	std::list<KamataEngine::WorldTransform*> worldTransform_;
+	KamataEngine::WorldTransform worldTransform_;
 	KamataEngine::WorldTransform ringWorldTransform;
 
 	// カメラの初期化
