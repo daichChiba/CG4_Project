@@ -24,8 +24,4 @@ private:
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
 
-	//パーティクル3Dモデルデータ
-	Model* modelParticle_ = nullptr;
-	// カメラの初期化
-	Camera* camera_;
 };
