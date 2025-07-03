@@ -13,6 +13,7 @@ GameScene::~GameScene() {
 	worldTransform_.clear();
 
 	delete model_;
+	delete ringModel;
 
 	// カメラの解放
 	delete camera_;
@@ -27,7 +28,7 @@ void GameScene::Initialize() {
 	// Audioインスタンスの取得
 	audio_ = Audio::GetInstance();
 
-
+	ringWorldTransform.Initialize();
 
 	// カメラの初期化
 	camera_ = new Camera();
@@ -44,9 +45,11 @@ void GameScene::Initialize() {
 	model2Handle_ = TextureManager::Load("./Resources/uvChecker.png");
 	//model_ = Model2::CreateFromOBJ("Panel", true);
 	model_ = Model2::CreateSquare(5);
+	ringModel = Model2::CreateRing(4);
 }
 
 void GameScene::Update() {
+	ringWorldTransform.UpdateMatrix();
 }
 
 void GameScene::Draw() {
@@ -75,9 +78,11 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
-	for (WorldTransform* wt : worldTransform_) {
-		model_->Draw(*wt, *camera_, model2Handle_);
-	}
+	//for (WorldTransform* wt : worldTransform_) {
+	//	model_->Draw(*wt, *camera_, model2Handle_);
+	//}
+	ringModel->Draw(ringWorldTransform, *camera_, model2Handle_);
+
 	// 3Dオブジェクト描画後処理
 	Model2::PostDraw();
 #pragma endregion

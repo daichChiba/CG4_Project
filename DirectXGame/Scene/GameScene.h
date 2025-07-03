@@ -28,10 +28,10 @@ private:
 	uint32_t model2Handle_;
 
 	KamataEngine::Model2* model = nullptr;
+	KamataEngine::Model2* ringModel = nullptr;
 
-	
 	std::list<KamataEngine::WorldTransform*> worldTransform_;
-
+	KamataEngine::WorldTransform ringWorldTransform;
 
 	// カメラの初期化
 	KamataEngine::Camera* camera_;

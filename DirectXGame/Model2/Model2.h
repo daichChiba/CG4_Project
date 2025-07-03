@@ -144,6 +144,12 @@ public: // 静的メンバ関数
 	static Model2* CreateSquare(int num);
 
 	/// <summary>
+	/// リンクモデル生成
+	/// </summary>
+	/// <returns></returns>
+	static Model2* CreateRing(int num);
+
+	/// <summary>
 	/// 描画前処理
 	/// </summary>
 	/// <param name="commandList">描画コマンドリスト</param>
