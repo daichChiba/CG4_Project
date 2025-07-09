@@ -1,27 +1,34 @@
 #include "TitleScene.h"
 using namespace KamataEngine;
 
-TitleScene::TitleScene() {
+TitleScene::TitleScene() {}
 
-}
-
-TitleScene::~TitleScene() {
-
-}
+TitleScene::~TitleScene() {}
 
 void TitleScene::Initialize() {
+
+	counter_ = 0;
+	countSpeed_ = 1;
+	titelSpeed_ = 0;
+
 
 	whitePanelTexture_ = TextureManager::Load("whitePanel.png");
 	pushButtonTexture_ = TextureManager::Load("pushButton.png");
 	gameTitelTexture_ = TextureManager::Load("gameTitle.png");
 
-	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {0,0});
-	pushButtonSprite_ = Sprite::Create(pushButtonTexture_,{320,400});
-	gameTitelSprite_ = Sprite::Create(gameTitelTexture_,{320,200});
-
+	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {0, 0});
+	pushButtonSprite_ = Sprite::Create(pushButtonTexture_, {320, 400});
+	gameTitelSprite_ = Sprite::Create(gameTitelTexture_, {320, -200});
 }
 
 void TitleScene::Update() {
+	counter_ += countSpeed_;
+
+	if (gameTitelSprite_->GetPosition().y<200) {
+		titelSpeed_ += kTitelSpeed_;
+		gameTitelSprite_->SetPosition(Vector2(320, gameTitelSprite_->GetPosition().y + titelSpeed_));
+	}
+
 	if (Input::GetInstance()->TriggerKey(DIK_RETURN)) {
 		isFinish = true;
 	}
@@ -68,7 +75,9 @@ void TitleScene::Draw() {
 	/// ここに前景スプライトの描画処理を追加できる
 	/// </summary>
 
-	pushButtonSprite_->Draw();
+	if (counter_ % kCountFrame_ >= kDrawCount_) {
+		pushButtonSprite_->Draw();
+	}
 	gameTitelSprite_->Draw();
 
 	// スプライト描画後処理

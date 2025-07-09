@@ -32,6 +32,17 @@ public:
 	void Delete() override;
 
 private:
+	// カウンター
+	int counter_;
+	// カウントスピード
+	int countSpeed_;
+	// 表示させる際の上限
+	const int kDrawCount_ = 30;
+	// 一秒あたりのフレーム数
+	const int kCountFrame_ = 60;
+	// タイトルが落ちてくるスピード
+	float titelSpeed_;
+	const float kTitelSpeed_ = 1.0f;
 
 private:
 
