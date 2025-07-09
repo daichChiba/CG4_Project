@@ -1,6 +1,9 @@
 #pragma once
 #include "KamataEngine.h"
-class TitleScene {
+
+#include "../Scene.h"
+
+class TitleScene : public Scene{
 public:
 	/// <summary>
 	/// コンストラクタ
@@ -13,22 +16,25 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	void Initialize() override;
 	/// <summary>
 	/// 更新
 	/// </summary>
-	void Update();
+	void Update() override;
 	/// <summary>
 	/// 描画
 	/// </summary>
-	void Draw();
+	void Draw() override;
+
+	/// <summary>
+	/// 削除
+	/// </summary>
+	void Delete() override;
 
 private:
 
 private:
-	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
-	KamataEngine::Input* input_ = nullptr;
-	KamataEngine::Audio* audio_ = nullptr;
+
 
 	//テクスチャ
 	uint32_t whitePanelTexture_;

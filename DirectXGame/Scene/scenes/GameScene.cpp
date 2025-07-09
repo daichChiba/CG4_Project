@@ -1,5 +1,4 @@
 #include "GameScene.h"
-#include "TitleScene.h"
 using namespace KamataEngine;
 GameScene::GameScene() {}
 
@@ -73,4 +72,6 @@ void GameScene::Draw() {
 #pragma endregion
 }
 
+void GameScene::Delete() {
 
+}

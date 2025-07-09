@@ -22,16 +22,25 @@
     <Filter Include="ヘッダー ファイル\Scene">
       <UniqueIdentifier>{80596711-40d0-4244-aa63-a19036f7e278}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Scene\scenes">
+      <UniqueIdentifier>{2163832f-20cc-4918-82cc-b5655488be22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene\scenes">
+      <UniqueIdentifier>{186c0b2e-507a-47b9-9c69-046e4662119f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\GameScene.cpp">
+    <ClCompile Include="Scene\Scene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Scene\scenes\GameScene.cpp">
+      <Filter>ソース ファイル\Scene\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\scenes\TitleScene.cpp">
+      <Filter>ソース ファイル\Scene\scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,11 +93,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scene\GameScene.h">
+    <ClInclude Include="Scene\Scene.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Scene\scenes\GameScene.h">
+      <Filter>ヘッダー ファイル\Scene\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\scenes\TitleScene.h">
+      <Filter>ヘッダー ファイル\Scene\scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

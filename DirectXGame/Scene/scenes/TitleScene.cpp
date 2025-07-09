@@ -10,25 +10,21 @@ TitleScene::~TitleScene() {
 }
 
 void TitleScene::Initialize() {
-	// DirectXCommonインスタンスの取得
-	dxCommon_ = DirectXCommon::GetInstance();
-	// Inputインスタンスの取得
-	input_ = Input::GetInstance();
-	// Audioインスタンスの取得
-	audio_ = Audio::GetInstance();
 
 	whitePanelTexture_ = TextureManager::Load("whitePanel.png");
 	pushButtonTexture_ = TextureManager::Load("pushButton.png");
-	gameTitelTexture_ = TextureManager::Load("gameTitel.png");
+	gameTitelTexture_ = TextureManager::Load("gameTitle.png");
 
 	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {0,0});
-	pushButtonSprite_ = Sprite::Create(pushButtonTexture_,{640,400});
-	gameTitelSprite_ = Sprite::Create(gameTitelTexture_,{640,200});
+	pushButtonSprite_ = Sprite::Create(pushButtonTexture_,{320,400});
+	gameTitelSprite_ = Sprite::Create(gameTitelTexture_,{320,200});
 
 }
 
 void TitleScene::Update() {
-
+	if (Input::GetInstance()->TriggerKey(DIK_RETURN)) {
+		isFinish = true;
+	}
 }
 
 void TitleScene::Draw() {
@@ -79,4 +75,10 @@ void TitleScene::Draw() {
 	Sprite::PostDraw();
 
 #pragma endregion
+}
+
+void TitleScene::Delete() {
+	delete whitePanelSprite_;
+	delete pushButtonSprite_;
+	delete gameTitelSprite_;
 }

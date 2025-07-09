@@ -1,0 +1,39 @@
+#pragma once
+#include "../Scene.h"
+#include "KamataEngine.h"
+
+// ゲームシーン
+class GameScene : public Scene {
+public:
+	/// <summary>
+	/// コンストラクタ
+	/// </summary>
+	GameScene();
+	/// <summary>
+	/// デストラクタ
+	/// </summary>
+	~GameScene();
+	/// <summary>
+	/// 初期化
+	/// </summary>
+	void Initialize() override;
+	/// <summary>
+	/// 更新
+	/// </summary>
+	void Update() override;
+	/// <summary>
+	/// 描画
+	/// </summary>
+	void Draw() override;
+
+	/// <summary>
+	/// 削除
+	/// </summary>
+	void Delete() override;
+
+
+private:
+
+private:
+
+};
