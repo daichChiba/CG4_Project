@@ -12,21 +12,26 @@ void TitleScene::Initialize() {
 	titelSpeed_ = 0;
 
 
+
+
 	whitePanelTexture_ = TextureManager::Load("whitePanel.png");
 	pushButtonTexture_ = TextureManager::Load("pushButton.png");
-	gameTitelTexture_ = TextureManager::Load("gameTitle.png");
+	gameTitleTexture_ = TextureManager::Load("gameTitle.png");
 
-	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {0, 0});
-	pushButtonSprite_ = Sprite::Create(pushButtonTexture_, {320, 400});
-	gameTitelSprite_ = Sprite::Create(gameTitelTexture_, {320, -200});
+	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {640.0f, 360.0f});
+	whitePanelSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
+	gameTitleSprite_ = Sprite::Create(gameTitleTexture_, {640.0f, -200.0f});
+	gameTitleSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
+	pushButtonSprite_ = Sprite::Create(pushButtonTexture_, {640.0f,400.0f});
+	pushButtonSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
 }
 
 void TitleScene::Update() {
 	counter_ += countSpeed_;
 
-	if (gameTitelSprite_->GetPosition().y<200) {
+	if (gameTitleSprite_->GetPosition().y<200.0f) {
 		titelSpeed_ += kTitelSpeed_;
-		gameTitelSprite_->SetPosition(Vector2(320, gameTitelSprite_->GetPosition().y + titelSpeed_));
+		gameTitleSprite_->SetPosition(Vector2(640.0f, gameTitleSprite_->GetPosition().y + titelSpeed_));
 	}
 
 	if (Input::GetInstance()->TriggerKey(DIK_RETURN)) {
@@ -78,7 +83,7 @@ void TitleScene::Draw() {
 	if (counter_ % kCountFrame_ >= kDrawCount_) {
 		pushButtonSprite_->Draw();
 	}
-	gameTitelSprite_->Draw();
+	gameTitleSprite_->Draw();
 
 	// スプライト描画後処理
 	Sprite::PostDraw();
@@ -87,7 +92,8 @@ void TitleScene::Draw() {
 }
 
 void TitleScene::Delete() {
+
 	delete whitePanelSprite_;
 	delete pushButtonSprite_;
-	delete gameTitelSprite_;
+	delete gameTitleSprite_;
 }

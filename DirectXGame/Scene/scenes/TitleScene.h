@@ -3,7 +3,7 @@
 
 #include "../Scene.h"
 
-class TitleScene : public Scene{
+class TitleScene : public Scene {
 public:
 	/// <summary>
 	/// コンストラクタ
@@ -44,15 +44,15 @@ private:
 	float titelSpeed_;
 	const float kTitelSpeed_ = 1.0f;
 
+
+
 private:
-
-
-	//テクスチャ
+	// テクスチャ
 	uint32_t whitePanelTexture_;
 	uint32_t pushButtonTexture_;
-	uint32_t gameTitelTexture_;
-	//スプライト
+	uint32_t gameTitleTexture_;
+	// スプライト
 	KamataEngine::Sprite* whitePanelSprite_ = nullptr;
 	KamataEngine::Sprite* pushButtonSprite_ = nullptr;
-	KamataEngine::Sprite* gameTitelSprite_ = nullptr;
+	KamataEngine::Sprite* gameTitleSprite_ = nullptr;
 };
