@@ -35,7 +35,4 @@ private:
 	// const KamataEngine::Vector2 startPos2nd_ = {1920.0f, 360.0f};
 
 private:
-	KamataEngine::DirectXCommon* dxCommon_ = nullptr;
-	KamataEngine::Input* input_ = nullptr;
-	KamataEngine::Audio* audio_ = nullptr;
 };
