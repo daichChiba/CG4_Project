@@ -8,13 +8,8 @@ GameScene::~GameScene() {
 }
 
 void GameScene::Initialize() {
-	// DirectXCommonインスタンスの取得
-	dxCommon_ = DirectXCommon::GetInstance();
-	// Inputインスタンスの取得
-	input_ = Input::GetInstance();
-	// Audioインスタンスの取得
-	audio_ = Audio::GetInstance();
 
+	stage_.Initialize();
 
 
 }
@@ -22,7 +17,7 @@ void GameScene::Initialize() {
 
 
 void GameScene::Update() {
-
+	stage_.Update();
 }
 
 void GameScene::Draw() {
@@ -37,6 +32,8 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに背景スプライトの描画処理を追加できる
 	/// </summary>
+
+	stage_.Draw();
 
 	// スプライト描画後処理
 	Sprite::PostDraw();
@@ -73,5 +70,5 @@ void GameScene::Draw() {
 }
 
 void GameScene::Delete() {
-
+	stage_.Delete();
 }

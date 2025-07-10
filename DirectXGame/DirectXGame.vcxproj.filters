@@ -28,6 +28,18 @@
     <Filter Include="ヘッダー ファイル\Scene\scenes">
       <UniqueIdentifier>{186c0b2e-507a-47b9-9c69-046e4662119f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game">
+      <UniqueIdentifier>{ca12d485-9418-4c92-8d97-75686cd5f533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Stage">
+      <UniqueIdentifier>{e59d669f-c3d7-427f-8bda-4db06b9ef202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Game">
+      <UniqueIdentifier>{742ce599-b218-4065-b411-4db956512103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Stage">
+      <UniqueIdentifier>{ccbd1c0f-600f-4e2c-88d9-9f2e0942629e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="Scene\scenes\TitleScene.cpp">
       <Filter>ソース ファイル\Scene\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Stage\Stage.cpp">
+      <Filter>ソース ファイル\Game\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="Scene\scenes\TitleScene.h">
       <Filter>ヘッダー ファイル\Scene\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Stage\Stage.h">
+      <Filter>ヘッダー ファイル\Game\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

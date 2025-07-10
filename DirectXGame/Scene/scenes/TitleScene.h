@@ -44,7 +44,10 @@ private:
 	float titelSpeed_;
 	const float kTitelSpeed_ = 1.0f;
 
-
+	const KamataEngine::Vector2 titleStartPos = {640.0f, -200.0f};
+	const KamataEngine::Vector2 titleGoalPos = {640.0f, 200.0f};
+	const KamataEngine::Vector2 whitePanelStartPos = {640.0f, 360.0f};
+	const KamataEngine::Vector2 pushButtonStartPos = {640.0f, 400.0f};
 
 private:
 	// テクスチャ

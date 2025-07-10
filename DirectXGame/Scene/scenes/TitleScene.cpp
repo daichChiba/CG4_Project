@@ -18,20 +18,20 @@ void TitleScene::Initialize() {
 	pushButtonTexture_ = TextureManager::Load("pushButton.png");
 	gameTitleTexture_ = TextureManager::Load("gameTitle.png");
 
-	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, {640.0f, 360.0f});
+	whitePanelSprite_ = Sprite::Create(whitePanelTexture_, whitePanelStartPos);
 	whitePanelSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
-	gameTitleSprite_ = Sprite::Create(gameTitleTexture_, {640.0f, -200.0f});
+	gameTitleSprite_ = Sprite::Create(gameTitleTexture_, titleStartPos);
 	gameTitleSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
-	pushButtonSprite_ = Sprite::Create(pushButtonTexture_, {640.0f,400.0f});
+	pushButtonSprite_ = Sprite::Create(pushButtonTexture_, pushButtonStartPos);
 	pushButtonSprite_->SetAnchorPoint(Vector2(0.5f, 0.5f));
 }
 
 void TitleScene::Update() {
 	counter_ += countSpeed_;
 
-	if (gameTitleSprite_->GetPosition().y<200.0f) {
+	if (gameTitleSprite_->GetPosition().y<titleGoalPos.y) {
 		titelSpeed_ += kTitelSpeed_;
-		gameTitleSprite_->SetPosition(Vector2(640.0f, gameTitleSprite_->GetPosition().y + titelSpeed_));
+		gameTitleSprite_->SetPosition(Vector2(titleGoalPos.x, gameTitleSprite_->GetPosition().y + titelSpeed_));
 	}
 
 	if (Input::GetInstance()->TriggerKey(DIK_RETURN)) {

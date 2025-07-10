@@ -106,6 +106,7 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Stage\Stage.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\scenes\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -187,6 +188,7 @@
     <None Include="Resources\shaders\Sprite.hlsli" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Stage\Stage.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\scenes\GameScene.h" />
     <ClInclude Include="Scene\scenes\TitleScene.h" />
