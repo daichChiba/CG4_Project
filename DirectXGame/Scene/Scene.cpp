@@ -20,5 +20,5 @@ void Scene::Draw() {
 }
 
 void Scene::Delete() {
-
+	
 }

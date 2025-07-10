@@ -8,16 +8,25 @@ GameScene::~GameScene() {
 }
 
 void GameScene::Initialize() {
+	camera_ = new Camera();
+	camera_->Initialize();
+	camera_->farZ = 1000.0f;
 
 	stage_.Initialize();
-
+	player_.Initialize();
 
 }
 
 
 
 void GameScene::Update() {
+	camera_->UpdateMatrix();
 	stage_.Update();
+	player_.Update();
+
+	//if (Input::GetInstance()->PushKey(DIK_SPACE)) {
+	//	isFinish = true;
+	//}
 }
 
 void GameScene::Draw() {
@@ -49,7 +58,7 @@ void GameScene::Draw() {
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
 
-
+	player_.Draw(*camera_);
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
@@ -70,5 +79,7 @@ void GameScene::Draw() {
 }
 
 void GameScene::Delete() {
+	delete camera_;
 	stage_.Delete();
+	player_.Delete();
 }

@@ -40,6 +40,15 @@
     <Filter Include="ヘッダー ファイル\Game\Stage">
       <UniqueIdentifier>{ccbd1c0f-600f-4e2c-88d9-9f2e0942629e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Player">
+      <UniqueIdentifier>{8e33fe91-06e4-4e38-a615-b39e5c13c50b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Player">
+      <UniqueIdentifier>{bad2fcb7-a3b5-4032-b8eb-c1ff7281ec7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ect">
+      <UniqueIdentifier>{1b323ae6-bb5e-4391-8a51-0eb35b4a6f0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +65,15 @@
     </ClCompile>
     <ClCompile Include="Game\Stage\Stage.cpp">
       <Filter>ソース ファイル\Game\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\Player.cpp">
+      <Filter>ソース ファイル\Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ect\worldTransfromEX.cpp">
+      <Filter>ソース ファイル\ect</Filter>
+    </ClCompile>
+    <ClCompile Include="ect\MathUtilityEX.cpp">
+      <Filter>ソース ファイル\ect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="Game\Stage\Stage.h">
       <Filter>ヘッダー ファイル\Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Player.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

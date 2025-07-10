@@ -1,6 +1,7 @@
 #pragma once
 #include "../Scene.h"
 #include "../../Game/Stage/Stage.h"
+#include "../../Game/Player/Player.h"
 #include "KamataEngine.h"
 
 // ゲームシーン
@@ -35,7 +36,9 @@ public:
 
 private:
 	Stage stage_;
+	Player player_;
 
 private:
+	KamataEngine::Camera* camera_;
 
 };
