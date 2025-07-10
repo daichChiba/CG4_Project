@@ -8,6 +8,7 @@ void Player::Initialize() {
 	worldTransform_.Initialize();
 	worldTransform_.translation_ = pos_;
 	worldTransform_.rotation_.y = 1.0f;
+	worldTransform_.scale_ = {4.0f, 4.0f, 4.0f};
 }
 
 void Player::Update() {
