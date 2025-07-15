@@ -83,7 +83,9 @@ void Stage::Delete() {
 		delete skysprite_[i];
 		delete gaugeSprite_[i];
 	}
-
+	for (int i = 0; i < numberNum; i++) {
+		delete numberSprite_[i];
+	}
 }
 
 void Stage::ForegroundDraw() {
