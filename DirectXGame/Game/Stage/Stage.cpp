@@ -10,7 +10,7 @@ void Stage::Initialize() {
 		Vector2 StartPos = {640.0f + 1280.0f * i, 360.0f};
 		Sprite* sprite = Sprite::Create(skyTexture_, StartPos);
 		sprite->SetAnchorPoint(Vector2(0.5f, 0.5f));
-		if (i == 1) {
+		if (i == secondNum) {
 			sprite->SetIsFlipX(true);
 			//sprite->SetIsFlipY(true);
 		}
@@ -20,9 +20,9 @@ void Stage::Initialize() {
 	for (int i = 0; i < spriteNum; i++) {
 		Sprite* sprite = Sprite::Create(whiteTexture_, gaugePos);
 		sprite->SetSize(stargGaugeSize_);
-		if (i==1) {
+		if (i==green) {
 			sprite->SetColor(Vector4(0.24f, 0.70f, 0.44f, 0.5f));
-		} else {
+		} else if (i==red) {
 			sprite->SetColor(Vector4(0.85f, 0.2f, 0.24f, 0.5f));
 		}
 		gaugeSprite_.push_back(sprite);
@@ -51,7 +51,7 @@ void Stage::Update() {
 		}
 
 		// ゲージ
-		if (i==1) {
+		if (i==green) {
 			gaugeSprite_[i]->SetSize(Vector2(gaugeSprite_[i]->GetSize().x - gaugeSpeed, stargGaugeSize_.y));
 			if (gaugeSprite_[i]->GetSize().x<=0) {
 				gaugeSprite_[i]->SetSize(stargGaugeSize_);

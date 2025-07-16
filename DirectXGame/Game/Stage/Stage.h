@@ -57,8 +57,14 @@ private:
 	const int kNumber = 0;
 	// カウントのスピード
 	const int numberSpeed = 1;
-
+	// 数字のカウント
 	int count;
+	// 二枚目の背景の番号
+	int secondNum = 1;
+	// ゲージの色の種類別
+	int red = 0;
+	int green = 1;
+
 
 private:
 };
