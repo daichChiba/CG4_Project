@@ -27,7 +27,7 @@ void Stage::Initialize() {
 		}
 		gaugeSprite_.push_back(sprite);
 	}
-
+	// 数字スプライト
 	for (int i = 0; i < numberNum; i++) {
 		Vector2 StartPos = {numberPos.x + numberSize.x * i, numberPos.y};
 		Sprite* sprite = Sprite::Create(numberTexture_, StartPos);
@@ -60,6 +60,7 @@ void Stage::Update() {
 	}
 	// 最初に割る数値は5桁なので1000で初期設定する
 	int32_t digit = 10000;
+	// 数字
 	for (int i = 0; i < numberNum; i++) {
 		// 今の桁の数値を取り出す
 		int nowNumber = count / digit;
@@ -79,19 +80,23 @@ void Stage::Draw() {
 }
 
 void Stage::Delete() {
+	// 背景とゲージ
 	for (int i = 0; i < spriteNum; i++) {
 		delete skysprite_[i];
 		delete gaugeSprite_[i];
 	}
+	// 数字
 	for (int i = 0; i < numberNum; i++) {
 		delete numberSprite_[i];
 	}
 }
 
 void Stage::ForegroundDraw() {
+	// ゲージ
 	for (int i = 0; i < spriteNum; i++) {
 		gaugeSprite_[i]->Draw();
 	}
+	// 数字
 	for (int i = 0; i < numberNum; i++) {
 		numberSprite_[i]->Draw();
 	}
