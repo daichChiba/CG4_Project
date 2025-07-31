@@ -24,9 +24,9 @@ void GameScene::Update() {
 	stage_.Update();
 	player_.Update();
 
-	//if (Input::GetInstance()->PushKey(DIK_SPACE)) {
-	//	isFinish = true;
-	//}
+	if (Input::GetInstance()->PushKey(DIK_SPACE)) {
+		isFinish = true;
+	}
 }
 
 void GameScene::Draw() {

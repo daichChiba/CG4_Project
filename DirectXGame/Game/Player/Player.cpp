@@ -28,14 +28,14 @@ void Player::Delete() {
 }
 
 void Player::Move() {
-	if (Input::GetInstance()->PushKey(DIK_D)) {
+	if (Input::GetInstance()->PushKey(DIK_D) || Input::GetInstance()->PushKey(DIK_RIGHT)) {
 		pos_.x += playerSpeed;
-	}else if (Input::GetInstance()->PushKey(DIK_A)) {
+	} else if (Input::GetInstance()->PushKey(DIK_A) || Input::GetInstance()->PushKey(DIK_LEFT)) {
 		pos_.x -= playerSpeed;
 	}
-	if (Input::GetInstance()->PushKey(DIK_W)) {
+	if (Input::GetInstance()->PushKey(DIK_W) || Input::GetInstance()->PushKey(DIK_UP)) {
 		pos_.y += playerSpeed;
-	}else if (Input::GetInstance()->PushKey(DIK_S)) {
+	} else if (Input::GetInstance()->PushKey(DIK_S) || Input::GetInstance()->PushKey(DIK_DOWN)) {
 		pos_.y -= playerSpeed;
 	}
 }
